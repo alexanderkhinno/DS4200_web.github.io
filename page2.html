@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Fear & Greed Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Our Data</h2>
+    
+    <h3>Bitcoin Price Data</h3>
+
+    <p>The Bitcoin price dataset comes from Kaggle and originally contains minute-level trading records, 
+        including the open, high, low, close, and volume for every minute. Since the dataset was too granular 
+        for long-term analysis, we converted all Unix timestamps into standard dates and then aggregated every
+        minute of data into daily summaries. Each day includes the opening price, the highest and lowest values, 
+        the closing price, and the total trading volume. This produced a clean and consistent daily price 
+        timeline that could be merged with the sentiment dataset.</p>
+
+    <h3>Fear & Greed Sentiment Data</h3>
+    
+    <p>The sentiment dataset also comes from Kaggle and provides a daily Fear and Greed Index 
+        score based on market volatility, momentum, survey responses, social media indicators, 
+        and other demand factors. Each day also includes a sentiment category such as Extreme Fear, 
+        Fear, Neutral, Greed, or Extreme Greed. After filling in missing values and aligning its 
+        dates with the Bitcoin price data, this dataset gave us a complete and readable timeline 
+        of daily market sentiment that we could directly pair with the daily price summaries.</p>
+
+    <h2>What We Learned</h2>
+
+    <p>Through our visualizations and analysis, we found that sentiment does relate to Bitcoin’s 
+        price behavior, but the relationship is not simple or immediate. Sentiment provides valuable 
+        context and helps explain why prices move the way they do, especially during emotionally charged 
+        periods. Extreme fear and extreme greed often appear close to turning points, although not 
+        always at the exact moment. We also saw clear emotional and price cycles over longer periods. 
+        In addition, the market appears to be gradually maturing, with less dramatic sentiment 
+        swings in more recent years. For investors, sentiment can help interpret the state of the 
+        market, but it should not be used by itself and works best when combined with other 
+        forms of analysis.</p>
+    
+    <h2>Future Work</h2>
+
+    <p>If we were to expand this project, we would consider including additional forms of sentiment 
+        data such as Twitter posts or Reddit discussions to see whether social-media-based sentiment 
+        adds predictive value. We would also consider building machine-learning models that combine 
+        sentiment, price, volatility, and other indicators to test whether they can predict future 
+        price movements. Another possible direction would be analyzing Ethereum or other major 
+        cryptocurrencies to compare whether their sentiment patterns behave similarly. Exploring 
+        different timeframes, such as hourly or weekly data, could also reveal new patterns. 
+        Finally, identifying market regimes such as bull markets, bear markets, or consolidation 
+        phases could help us understand how sentiment interacts with price under different conditions.</p>
+    
+    <h2>Our Team</h2>
+
+    <h4>Zihan Yu</h4>
+    <p>background research, Matplotlib visualizations, data descriptions, and webpage writing.</p>
+
+    <h4>Alex Khinno</h4>
+    <p>background research, D3 visualizations, and webpage development.</p>
+
+    <h4>Rishi Rakesh Urs</h4>
+    <p>data collection and cleaning, Altair visualizations, and background research</p>
+
+    <div class="navigation">
+        <a href="web.html" class="nav-button previous">← Previous Page</a>
+    </div>
+</body>
+</html> 
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Fear & Greed</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    
+    <h2>Introduction</h2>
+
+    <p>Bitcoin is widely recognized for its extreme volatility—its price often moves not 
+        because of traditional financial indicators, but because of investor psychology. 
+        In this project, we analyze the relationship between Bitcoin’s historical price movements 
+        and the Fear & Greed Index, a sentiment score ranging from 0 (extreme fear) to 100 (extreme greed). 
+        Understanding this relationship is important because Bitcoin’s value isn’t tied to corporate earnings 
+        or economic fundamentals. Instead, it is shaped by collective emotion, market momentum, and adoption 
+        patterns. This makes Bitcoin a strong case study for exploring how sentiment influences financial 
+        markets. Our goal was to visualize how Bitcoin’s price interacts with daily sentiment patterns and to 
+        identify whether emotional highs and lows align with market turning points.</p>
+    
+
+    <h2>Bitcoin Fear & Greed Timeseries</h2>
+
+    <div class="visualization-container">
+        <iframe src="viz1_btc_fear_greed_timeseries.html" width="100%" height="500px"></iframe>
+        <p>Our first visualization is an interactive chart that shows Bitcoin's daily closing price 
+            alongside the daily Fear and Greed score. The chart uses a dual-axis format because price 
+            values and sentiment values are on very different scales. The interactive timeline underneath 
+            allows users to zoom in on specific periods, which makes it easier to see how price and sentiment 
+            moved during rallies, crashes, or extended sideways markets. When exploring the chart, we noticed 
+            that sentiment often reacts to price changes rather than predicting them. Fear tends to deepen after 
+            a major drop, and greed tends to appear after prices have already risen. Extreme emotional levels 
+            also appear close to major turning points, although the timing is not always perfect. When looking at 
+            the long timeline, the broader cycles of price and sentiment line up with well-known bull and bear 
+            phases in the Bitcoin market.</p>
+    </div>
+
+    <h2>Sentiment & Volatility Scatterplot</h2>
+
+    <div class="visualization-container">
+        <iframe src="viz2_sentiment_vs_volatility.html" width="100%" height="500px"></iframe>
+        <p>The second visualization compares seven-day average sentiment with seven-day rolling volatility. 
+            Each point represents one day, and the color indicates the sentiment category. A year slider allows users 
+            to explore the relationship during different periods. We used rolling averages to smooth out noisy day-to-day 
+            changes and focus on overall patterns. From the scatter plot, we found that there is no simple or consistent linear 
+            relationship between sentiment and volatility. High volatility can appear at both low and high sentiment scores. However, 
+            we did notice that periods of extreme fear often show higher volatility, which matches common market behavior during panic 
+            or rapid price drops. Neutral sentiment days tend to cluster at lower volatility levels. Greedy periods vary more, sometimes 
+            appearing calm when prices are rising steadily and sometimes showing large swings when speculation is strong. Earlier years 
+            appear more scattered and unpredictable, while more recent years show slightly more structure, which may suggest a maturing 
+            market.</p>
+    </div>
+
+    <h2>Monthly Sentiment Heatmap</h2>
+
+    <div class="visualization-container">
+        <img src="matplotlib_viz1_monthly_heatmap.png" alt="Monthly Sentiment Heatmap" width="100%">
+        <p>The monthly sentiment heatmap shows the average Fear and Greed score for each month across several years. 
+            Red represents lower sentiment values, yellow represents neutral values, and green represents higher sentiment levels. 
+            Presenting the data in monthly form makes long-term emotional patterns easier to see than daily data, which can be very noisy. 
+            From the heatmap, we noticed that certain months tend to lean consistently fearful or greedy, and clusters of extreme fear often 
+            appear shortly before markets begin to recover. We also observed long stretches where sentiment stays mostly fearful or mostly greedy, 
+            which align with extended bear and bull markets. In more recent years, the shifts between extreme fear and extreme greed appear less sharp, 
+            which may reflect increased market stability or growing participation from institutional investors.</p>
+    </div>
+
+    <h2>Candlestick Chart</h2>
+
+    <div class="visualization-container">
+        <img src="matplotlib_viz2_candlestick.png" alt="Candlestick Chart" width="100%">
+        <p>The candlestick chart focuses on the most recent ninety days of Bitcoin trading data. 
+            Each candle shows the daily open, close, high, and low prices. Behind the candles, 
+            the background color reflects the sentiment category for that day. Combining price 
+            action with sentiment shading makes it easier to see how emotion aligns with short-term 
+            market movements. We found that extreme fear often appears near local price bottoms, while 
+            extreme greed is frequently present near short-term highs. When sentiment changes quickly from 
+            fear to greed or the other way around, price tends to show larger swings, suggesting that sharp 
+            emotional shifts correspond to increased volatility. However, sentiment is not perfectly predictive. 
+            There are periods when fear remains high even as prices begin to rise, and periods when greed persists 
+            during small pullbacks. This shows that sentiment provides useful context but cannot be used as a 
+            standalone indicator</p>
+    </div>
+
+    <h2>D3 Visualization</h2>
+    
+    <div class="visualization-container">
+        <div id="my_dataviz"></div>
+        <p>D3 Visualization paragraph goes here...</p>
+    </div>
+    
+    <div class="navigation">
+        <a href="page2.html" class="nav-button next">Next Page →</a>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
