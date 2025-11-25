@@ -428,6 +428,14 @@ function updateInfoPanel(d) {
 
 // Load fear_greed_index.csv
 d3.csv("fear_greed_index.csv").then(function(data) {
+    console.log("Data loaded successfully. Rows:", data.length);
+    console.log("First row:", data[0]);
+    
+    // Check if data is empty
+    if (!data || data.length === 0) {
+        throw new Error("CSV file loaded but contains no data");
+    }
+    
     // Process data
     data.forEach(d => {
         d.value = +d.value;
@@ -436,6 +444,12 @@ d3.csv("fear_greed_index.csv").then(function(data) {
 
     // Filter out any invalid data
     validData = data.filter(d => !isNaN(d.value) && d.classification);
+    
+    console.log("Valid data rows:", validData.length);
+    
+    if (validData.length === 0) {
+        throw new Error("No valid data found after filtering. Check CSV structure.");
+    }
 
     // Group data by classification
     const grouped = d3.group(validData, d => d.classification);
@@ -517,8 +531,40 @@ d3.csv("fear_greed_index.csv").then(function(data) {
 
 }).catch(function(error) {
     console.error("Error loading or processing data:", error);
-    d3.select("#my_dataviz")
-        .append("p")
+    console.error("Error details:", error.message, error.stack);
+    
+    // Show detailed error message
+    const errorDiv = d3.select("#my_dataviz")
+        .append("div")
         .style("color", "red")
-        .text("Error loading data. Please check that fear_greed_index.csv is available.");
+        .style("padding", "20px")
+        .style("background-color", "#ffebee")
+        .style("border", "2px solid #f44336")
+        .style("border-radius", "5px")
+        .style("margin", "20px");
+    
+    errorDiv.append("h3")
+        .text("Error Loading Data");
+    
+    errorDiv.append("p")
+        .text("Error message: " + (error.message || "Unknown error"));
+    
+    errorDiv.append("p")
+        .text("Please check:");
+    
+    const checklist = errorDiv.append("ul");
+    checklist.append("li").text("That fear_greed_index.csv exists in the same directory");
+    checklist.append("li").text("That you're running a local web server (not opening file:// directly)");
+    checklist.append("li").text("Check the browser console for more details");
+    
+    // Try to provide helpful debugging info
+    if (error.message && error.message.includes("404")) {
+        errorDiv.append("p")
+            .style("color", "orange")
+            .text("File not found. Make sure fear_greed_index.csv is in the same directory as index.html");
+    } else if (error.message && error.message.includes("CORS")) {
+        errorDiv.append("p")
+            .style("color", "orange")
+            .text("CORS error: You need to run a local web server. Try: python -m http.server 8000");
+    }
 });
