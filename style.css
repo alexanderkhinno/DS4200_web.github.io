@@ -22,7 +22,14 @@ h3, h4 {
 p {
     margin-bottom: 20px;
     text-align: justify;
-    color: white;
+    color: inherit; /* inherit from body, so default is white */
+}
+
+/* ONLY paragraphs inside visualization containers are black */
+.visualization-container p,
+.visualization-container ul,
+.visualization-container li {
+    color: black;
 }
 
 .navigation {
