@@ -4,13 +4,13 @@ body {
     margin: 0 auto;
     padding: 20px;
     line-height: 1.6;
-    background-color: lightblue;
+    background-color: #5dade2;
     color: white;
 }
 
 h2 {
     color: white;
-    border-bottom: 2px solid #4CAF50;
+    border-bottom: 2px solid black;
     padding-bottom: 10px;
     margin-top: 30px;
 }
@@ -37,7 +37,7 @@ p {
 .nav-button {
     display: inline-block;
     padding: 12px 24px;
-    background-color: #4CAF50;
+    background-color: #2196F3;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -46,7 +46,7 @@ p {
 }
 
 .nav-button:hover {
-    background-color: #45a049;
+    background-color: #0b7dda;
 }
 
 .nav-button.previous {
